@@ -1,10 +1,12 @@
+import Header from "../components/Header";
+import "../css/Home.css";
+
 const Home = () => {
   return (
-    <div>
-      <h1>Welcome to the Home Page</h1>
-      <p>This is the home page of our application.</p>
-    </div>
+    <section className="home-container">
+      <Header />
+    </section>
   );
-}
+};
 
 export default Home;

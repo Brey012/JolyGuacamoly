@@ -1,0 +1,65 @@
+:root {
+  /* Colores principales */
+  --green-primary: #3a8524; /* Verde aguacate */
+  --green-light: #a8d36c; /* Verde claro */
+  --yellow-maize: #f5c11b; /* Amarillo maíz */
+  --brown-seed: #8b4f26; /* Marrón semilla */
+  --red-tomato: #d13e25; /* Rojo tomate */
+  --green-dark-text: #2f5d1c; /* Verde profundo (texto) */
+  --off-white-bg: #fff5e1; /* Fondo claro tipo papel */
+
+  /* Tipografía */
+  --font-family: "Poppins", sans-serif;
+
+  /* Otros */
+  --border-radius: 12px;
+  --transition-fast: 0.2s ease-in-out;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+}
+
+header {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+  width: 25%;
+}
+
+.header__nav ul {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.header__nav ul li {
+    list-style: none;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--green-dark-text);
+    transition: var(--transition-fast);
+}
+
+.header__nav ul li a {
+    color: inherit;
+}
+
+.header__nav ul li:hover {
+  color: var(--green-light);
+}
+

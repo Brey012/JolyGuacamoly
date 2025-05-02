@@ -1,0 +1,30 @@
+:root {
+    /* Colores principales */
+    --green-primary: #3A8524;      /* Verde aguacate */
+    --green-light: #A8D36C;        /* Verde claro */
+    --yellow-maize: #F5C11B;       /* Amarillo maíz */
+    --brown-seed: #8B4F26;         /* Marrón semilla */
+    --red-tomato: #D13E25;         /* Rojo tomate */
+    --green-dark-text: #2F5D1C;    /* Verde profundo (texto) */
+    --off-white-bg: #fff5e1;       /* Fondo claro tipo papel */
+  
+    /* Tipografía */
+    --font-family: 'Poppins', sans-serif;
+  
+    /* Otros */
+    --border-radius: 12px;
+    --transition-fast: 0.2s ease-in-out;
+  }
+
+/* Estilos generales */
+body {
+    font-family: var(--font-family);
+    background-color: var(--off-white-bg);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+}
