@@ -4,7 +4,11 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <header className="">
-      <div className="header__logo">My Logo</div>
+      <div className="header__logo">
+        <Link to="/">
+          <img src="/public/JolyGuacamolyTransparentLogo.png" alt="Logo" />
+        </Link>
+      </div>
       <nav className="header__nav">
         <ul className="header__nav-list">
           <li className="header__nav-item">
