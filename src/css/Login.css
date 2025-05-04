@@ -1,0 +1,32 @@
+:root {
+  /* Colores principales */
+  --green-primary: #3a8524; /* Verde aguacate */
+  --green-light: #a8d36c; /* Verde claro */
+  --yellow-maize: #f4b516; /* Amarillo maíz */
+  --brown-seed: #8b4f26; /* Marrón semilla */
+  --red-tomato: #d13e25; /* Rojo tomate */
+  --green-dark-text: #2f5d1c; /* Verde profundo (texto) */
+  --off-white-bg: #fff5e1; /* Fondo claro tipo papel */
+
+  /* Tipografía */
+  --font-family: "Poppins", sans-serif;
+
+  /* Otros */
+  --border-radius: 12px;
+  --transition-fast: 0.2s ease-in-out;
+}
+
+.login__container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background-color: var(--off-white-bg);
+  overflow: hidden;
+}
+
+.login__container img {
+  width: 50%;
+  height: 100%;
+}
+
