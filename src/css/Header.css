@@ -9,7 +9,6 @@
   --off-white-bg: #fff5e1; /* Fondo claro tipo papel */
 
   /* Tipografía */
-  --font-family: "Poppins", sans-serif;
 
   /* Otros */
   --border-radius: 12px;
@@ -75,17 +74,17 @@ header {
 }
 
 .header__nav ul li:hover {
-  color: var(--green-light);
+  color: var(--red-tomato);
 }
 
 .header__nav ul li.active {
-  color: var(--green-light);
+  color: var(--red-tomato);
   font-weight: 700;
 }
 
 .header__nav ul li a:hover {
   position: relative;
-  color: var(--green-light);
+  color: var(--red-tomato);
 }
 
 .header__nav ul li a:hover::after {
@@ -95,7 +94,7 @@ header {
   bottom: -5px;
   width: 100%;
   height: 4px;
-  background-color: var(--green-light);
+  background-color: var(--red-tomato);
   border-radius: var(--border-radius);
   transform: scaleX(0);
   transform-origin: left;
