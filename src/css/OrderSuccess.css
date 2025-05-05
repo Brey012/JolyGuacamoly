@@ -1,0 +1,150 @@
+:root {
+    /* Colores principales */
+    --green-primary: #3a8524; /* Verde aguacate */
+    --green-light: #a8d36c; /* Verde claro */
+    --yellow-maize: #f4b516; /* Amarillo maíz */
+    --brown-seed: #8b4f26; /* Marrón semilla */
+    --red-tomato: #d13e25; /* Rojo tomate */
+    --green-dark-text: #2f5d1c; /* Verde profundo (texto) */
+    --off-white-bg: #fff5e1; /* Fondo claro tipo papel */
+  
+    /* Otros */
+    --border-radius: 12px;
+    --transition-fast: 0.2s ease-in-out;
+  }
+
+.order_content {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: var(--off-white-bg);
+
+}
+
+.content_container {
+  width: 100%;
+  height: 91%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.content_container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(/public/ChatGPT\ Image\ 2\ may\ 2025\,\ 15_35_40.png);
+  background-size: cover;
+  opacity: 0.4;
+  z-index: 1;
+}
+
+.content_container > * {
+  position: relative;
+  z-index: 2;
+}
+
+.content_container img {
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.8));
+}
+
+.form_container {
+  background-color: #fffdf5;
+  padding: 2.5rem;
+  border-radius: 2rem;
+  width: 90%;
+  max-width: 520px;
+  margin: 0 auto;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.form_container h2 {
+  color: #65a30d;
+  margin-bottom: 0.5rem;
+}
+
+.form_container p {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 2rem;
+}
+
+.order_form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form_group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  animation: fadeInUp 0.4s ease both;
+}
+
+.form_group label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #444;
+  font-size: 1.1rem;
+}
+
+.form_group input {
+  width: 100%;
+  padding: 0.85rem;
+  border: 2px dashed #c7e8a9;
+  border-radius: 1rem;
+  font-size: 1rem;
+  background-color: #fefefc;
+  transition: border 0.3s ease;
+}
+
+.form_group input:focus {
+  outline: none;
+  border: 2px solid #65a30d;
+}
+
+.confirm_button {
+  background-color: #f97316;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0.9rem 1.5rem;
+  border: none;
+  border-radius: 1.2rem;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
+}
+
+.confirm_button:hover {
+  background-color: #ea580c;
+  transform: scale(1.05);
+}
+
+/* Animación de entrada */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
