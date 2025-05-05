@@ -41,7 +41,7 @@
   background-image: url(/public/ChatGPT\ Image\ 2\ may\ 2025\,\ 15_35_40.png);
   background-size: cover;
   /* background-position: center; */
-  opacity: 0.4; /* Ajusta la opacidad según sea necesario */
+  opacity: 0.4; 
   z-index: 1;
 }
 
@@ -138,4 +138,22 @@
 .products_content--card:hover {
   transform: scale(1.05);
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.view-cart-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: var(--green-primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.view-cart-btn:hover {
+  background-color: var(--green-light);
 }

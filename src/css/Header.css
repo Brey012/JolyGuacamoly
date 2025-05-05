@@ -104,3 +104,37 @@ header {
 .header__nav ul li a:hover::after {
   transform: scaleX(1);
 }
+
+.header__cart-btn {
+  background: none;
+  border: none;
+  color: var(--green-dark-text);
+  font-weight: 500;
+  font-size: 18px;
+  cursor: pointer;
+  position: relative;
+  transition: var(--transition-fast);
+  font-family: 'Fredoka', sans-serif
+}
+
+.header__cart-btn:hover {
+  color: var(--red-tomato);
+}
+
+.header__cart-btn::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 4px;
+  background-color: var(--red-tomato);
+  border-radius: var(--border-radius);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-fast);
+}
+
+.header__cart-btn:hover::after {
+  transform: scaleX(1);
+}

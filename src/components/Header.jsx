@@ -1,9 +1,9 @@
 import "../css/Header.css";
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ onCartClick }) => {
   return (
-    <header className="">
+    <header className="header">
       <div className="header__logo">
         <Link to="/">
           <img src="/public/JolyGuacamolyTransparentLogo.png" alt="Logo" />
@@ -18,7 +18,10 @@ const Header = () => {
             <Link to="/products">Productos</Link>
           </li>
           <li className="header__nav-item">
-            <Link to="/cart">Carrito</Link>
+            {/* Cambia el enlace por un botón */}
+            <button className="header__cart-btn" onClick={onCartClick}>
+              Carrito
+            </button>
           </li>
           <li className="header__nav-item">
             <Link to="/login">Ingresar</Link>
