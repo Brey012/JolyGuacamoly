@@ -1,6 +1,17 @@
 import "../css/CartDrawer.css";
+import { useNavigate } from "react-router-dom";
 
 const CartDrawer = ({ isOpen, onClose, cartItems }) => {
+  const navigate = useNavigate(); // Inicializa el hook de navegación
+
+  const handleConfirmOrder = () => {
+    if (cartItems.length > 0) {
+      navigate("/order-success"); // Redirige a la página de éxito del pedido
+    } else {
+      alert("El carrito está vacío. Agrega productos antes de confirmar el pedido.");
+    }
+  };
+
   return (
     <div className={`cart-drawer ${isOpen ? "open" : ""}`}>
       <div className="cart-header">
@@ -20,7 +31,9 @@ const CartDrawer = ({ isOpen, onClose, cartItems }) => {
         )}
       </div>
       <div className="cart-footer">
-        <button className="checkout-btn">Confirmar Pedido</button>
+        <button className="checkout-btn" onClick={handleConfirmOrder}>
+          Confirmar Pedido
+        </button>
       </div>
     </div>
   );

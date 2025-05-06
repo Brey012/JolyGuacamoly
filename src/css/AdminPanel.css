@@ -1,0 +1,211 @@
+.admin_panel {
+  height: 100vh;
+  width: 100%;
+  padding: 2rem;
+  font-family: "Fredoka", sans-serif;
+  background-image: url(/public/ChatGPT\ Image\ 2\ may\ 2025\,\ 15_35_40.png);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.admin_panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+  background-color: var(--off-white-bg);
+
+  z-index: 1;
+}
+
+.admin_panel > * {
+  position: relative;
+  z-index: 2;
+}
+
+.admin_panel--container {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.admin_panel--content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Bienvenida */
+.admin_panel--content-bienvenida {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #b2f2bb;
+  padding: 1rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.admin_panel--content-bienvenida h1 {
+  font-size: 1.5rem;
+  color: #2e7d32;
+  text-align: center;
+  flex: 1 1 100%;
+}
+
+.admin_panel--content-bienvenida img {
+  width: 120px;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* Secciones de Inventario y Pedidos */
+.admin_panel--content-inventario,
+.admin_panel--content-pedidos {
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.admin_panel--content-inventario h2,
+.admin_panel--content-pedidos h2 {
+  color: #388e3c;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+.producto,
+.pedido {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  background-color: #f1f8e9;
+  padding: 0.8rem;
+  border-radius: 12px;
+}
+
+.producto p,
+.pedido p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #33691e;
+  flex: 1 1 auto;
+}
+
+.producto input {
+  width: 60px;
+  padding: 0.4rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+/* Botones */
+.btn-agotar,
+.btn-completar {
+  background-color: #81c784;
+  color: white;
+  border: none;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.btn-agotar:hover {
+  background-color: #e57373;
+}
+
+.btn-completar:hover {
+  background-color: #66bb6a;
+}
+
+.btn-volver-home {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #65a30d; /* Verde atractivo */
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.btn-volver-home:hover {
+  background-color: #4d7c0f; /* Verde más oscuro */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .admin_panel {
+    padding: 1rem;
+  }
+
+  .admin_panel--content {
+    gap: 1.5rem;
+  }
+
+  .admin_panel--content-bienvenida {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .admin_panel--content-bienvenida img {
+    width: 100px;
+  }
+
+  .producto,
+  .pedido {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .producto input {
+    width: 100%;
+  }
+
+  .btn-agotar,
+  .btn-completar {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin_panel--content-bienvenida h1 {
+    font-size: 1.2rem;
+  }
+
+  .admin_panel--content-inventario h2,
+  .admin_panel--content-pedidos h2 {
+    font-size: 1.2rem;
+  }
+
+  .producto p,
+  .pedido p {
+    font-size: 0.8rem;
+  }
+
+  .btn-agotar,
+  .btn-completar {
+    font-size: 0.8rem;
+  }
+}
