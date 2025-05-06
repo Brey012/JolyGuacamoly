@@ -157,3 +157,35 @@
 .view-cart-btn:hover {
   background-color: var(--green-light);
 }
+
+.producto {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.producto p {
+  margin: 5px 0;
+}
+
+.producto input {
+  width: 80px;
+  padding: 5px;
+  margin-left: 5px;
+}
+
+.producto button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #65a30d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.producto button:hover {
+  background-color: #4d7c0f;
+}

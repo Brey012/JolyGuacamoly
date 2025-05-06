@@ -17,22 +17,26 @@
     {
       "id": 1,
       "nombre": "Guacamole Tradicional",
-      "precio": 10
+      "precio": 10,
+      "agotado": false
     },
     {
       "id": 2,
       "nombre": "Guacamole Picante",
-      "precio": 12
+      "precio": 12,
+      "agotado": false
     },
     {
       "id": 3,
       "nombre": "Guacamole con Mango",
-      "precio": 15
+      "precio": 15,
+      "agotado": false
     },
     {
       "id": 4,
       "nombre": "Guacamole con Piña",
-      "precio": 18
+      "precio": 18,
+      "agotado": false
     }
   ],
   "orders": []

@@ -153,6 +153,48 @@
   background-color: #4d7c0f; /* Verde más oscuro */
 }
 
+/* Productos Panel */
+.productos-panel {
+  margin-top: 20px;
+  overflow-x: auto;
+}
+
+.productos-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.productos-table th,
+.productos-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.productos-table th {
+  background-color: #65a30d;
+  color: white;
+}
+
+.productos-table input {
+  width: 80px;
+  padding: 5px;
+}
+
+.productos-table button {
+  padding: 5px 10px;
+  background-color: #65a30d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.productos-table button:hover {
+  background-color: #4d7c0f;
+}
+
 /* Media Queries */
 @media (max-width: 768px) {
   .admin_panel {

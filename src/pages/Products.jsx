@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import CartDrawer from "./CartDrawer";
 import "../css/Products.css";
@@ -14,24 +14,43 @@ const Products = () => {
     { id: 4, nombre: "Guacamole con Piña", precio: 18 },
   ];
 
+  // Cargar el carrito desde localStorage al montar el componente
+  useEffect(() => {
+    const savedCart = JSON.parse(localStorage.getItem("cartItems"));
+    if (savedCart) {
+      setCartItems(savedCart);
+    }
+  }, []);
+
+  // Guardar el carrito en localStorage cada vez que cambie
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
+
   const addToCart = (product) => {
+    if (product.agotado) {
+      alert("Este producto está agotado.");
+      return;
+    }
+
     const existingItem = cartItems.find((item) => item.id === product.id);
+    let updatedCart;
+
     if (existingItem) {
-      setCartItems(
-        cartItems.map((item) =>
-          item.id === product.id
-            ? { ...item, cantidad: item.cantidad + 1 }
-            : item
-        )
+      updatedCart = cartItems.map((item) =>
+        item.id === product.id
+          ? { ...item, cantidad: item.cantidad + 1 }
+          : item
       );
     } else {
-      setCartItems([...cartItems, { ...product, cantidad: 1 }]);
+      updatedCart = [...cartItems, { ...product, cantidad: 1 }];
     }
+
+    setCartItems(updatedCart);
   };
 
   return (
     <section className="products_container">
-      {/* Pasa la función setIsCartOpen como onCartClick */}
       <Header onCartClick={() => setIsCartOpen(true)} />
       <div className="products_content">
         <div className="products_content--container">
@@ -56,6 +75,7 @@ const Products = () => {
         isOpen={isCartOpen}
         onClose={() => setIsCartOpen(false)}
         cartItems={cartItems}
+        setCartItems={setCartItems}
       />
     </section>
   );
