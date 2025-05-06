@@ -1,7 +1,24 @@
 import "../css/Header.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 const Header = ({ onCartClick }) => {
+  const [loggedInUser, setLoggedInUser] = useState(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("loggedInUser"));
+    if (user) {
+      setLoggedInUser(user);
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("loggedInUser"); // Elimina el usuario del localStorage
+    setLoggedInUser(null); // Limpia el estado
+    navigate("/login"); // Redirige al inicio de sesión
+  };
+
   return (
     <header className="header">
       <div className="header__logo">
@@ -18,13 +35,23 @@ const Header = ({ onCartClick }) => {
             <Link to="/products">Productos</Link>
           </li>
           <li className="header__nav-item">
-            {/* Cambia el enlace por un botón */}
             <button className="header__cart-btn" onClick={onCartClick}>
               Carrito
             </button>
           </li>
           <li className="header__nav-item">
-            <Link to="/login">Ingresar</Link>
+            {loggedInUser ? (
+              <div className="dropdown">
+                <button className="dropdown__toggle">
+                  {loggedInUser.username}
+                </button>
+                <div className="dropdown__menu">
+                  <button onClick={handleLogout}>Cerrar sesión</button>
+                </div>
+              </div>
+            ) : (
+              <Link to="/login">Ingresar</Link>
+            )}
           </li>
         </ul>
       </nav>

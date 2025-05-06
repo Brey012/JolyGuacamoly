@@ -1,0 +1,39 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "admin@boss",
+      "password": "admin123",
+      "role": "admin"
+    },
+    {
+      "id": "5506",
+      "username": "Brey@gmail",
+      "password": "brey1012",
+      "role": "user"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "nombre": "Guacamole Tradicional",
+      "precio": 10
+    },
+    {
+      "id": 2,
+      "nombre": "Guacamole Picante",
+      "precio": 12
+    },
+    {
+      "id": 3,
+      "nombre": "Guacamole con Mango",
+      "precio": 15
+    },
+    {
+      "id": 4,
+      "nombre": "Guacamole con Piña",
+      "precio": 18
+    }
+  ],
+  "orders": []
+}
