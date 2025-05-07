@@ -3,7 +3,7 @@
     {
       "id": "1",
       "username": "admin@boss.com",
-      "password": "admin123",
+      "password": "jefehass",
       "role": "admin"
     },
     {
@@ -228,6 +228,28 @@
       ],
       "total": 25,
       "fecha": "2025-05-07T03:11:53.901Z"
+    },
+    {
+      "id": "6339",
+      "cliente": "brey@gmai.com",
+      "productos": [
+        {
+          "id": "3",
+          "nombre": "Guacamole con Mango",
+          "precio": 15,
+          "agotado": false,
+          "cantidad": 1
+        },
+        {
+          "id": "4",
+          "nombre": "Guacamole con Piña",
+          "precio": 12,
+          "agotado": false,
+          "cantidad": 1
+        }
+      ],
+      "total": 27,
+      "fecha": "2025-05-07T03:37:54.189Z"
     }
   ]
 }
