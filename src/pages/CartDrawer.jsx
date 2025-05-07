@@ -8,8 +8,13 @@ const CartDrawer = ({ isOpen, onClose, cartItems, setCartItems }) => {
   // Calcular el total del carrito
   const total = cartItems.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
 
-  const handleConfirmOrder = () => {
-    if (cartItems.length > 0) {
+  const handleConfirmOrder = async () => {
+    if (cartItems.length === 0) {
+      alert("El carrito está vacío. Agrega productos antes de confirmar el pedido.");
+      return;
+    }
+
+    try {
       const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
       const order = {
         cliente: loggedInUser ? loggedInUser.username : "Cliente Anónimo",
@@ -18,16 +23,31 @@ const CartDrawer = ({ isOpen, onClose, cartItems, setCartItems }) => {
         fecha: new Date().toISOString(),
       };
 
-      // Guarda el pedido en localStorage
-      const existingOrders = JSON.parse(localStorage.getItem("orders")) || [];
-      localStorage.setItem("orders", JSON.stringify([...existingOrders, order]));
+      // Enviar el pedido al servidor
+      const response = await fetch("http://localhost:5000/orders", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(order),
+      });
+
+      if (!response.ok) {
+        throw new Error("Error al confirmar el pedido. Intenta nuevamente.");
+      }
+
+      // Guardar el pedido en localStorage para la página de éxito
+      localStorage.setItem("lastOrder", JSON.stringify(order));
 
       // Limpia el carrito
       localStorage.removeItem("cartItems");
       setCartItems([]);
+
+      // Redirige a la página de éxito del pedido
       navigate("/order-success");
-    } else {
-      alert("El carrito está vacío. Agrega productos antes de confirmar el pedido.");
+    } catch (error) {
+      console.error("Error al confirmar el pedido:", error);
+      alert("Hubo un problema al confirmar el pedido. Intenta nuevamente.");
     }
   };
 

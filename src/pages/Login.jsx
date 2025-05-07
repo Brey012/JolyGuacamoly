@@ -7,13 +7,50 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
-  // Función para manejar el inicio de sesión
+  // Validar el formato del correo electrónico
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  // Validar el formulario de inicio de sesión
+  const validateLoginForm = () => {
+    const newErrors = {};
+    if (!email) newErrors.email = "El correo electrónico es obligatorio.";
+    else if (!validateEmail(email))
+      newErrors.email = "El formato del correo electrónico no es válido.";
+    if (!password) newErrors.password = "La contraseña es obligatoria.";
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  // Validar el formulario de registro
+  const validateRegisterForm = () => {
+    const newErrors = {};
+    if (!name) newErrors.name = "El nombre es obligatorio.";
+    if (!email) newErrors.email = "El correo electrónico es obligatorio.";
+    else if (!validateEmail(email))
+      newErrors.email = "El formato del correo electrónico no es válido.";
+    if (!password) newErrors.password = "La contraseña es obligatoria.";
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  // Manejar el inicio de sesión
   const handleLogin = async (e) => {
     e.preventDefault();
+    if (!validateLoginForm()) return;
+
     try {
       const response = await fetch("http://localhost:5000/users");
+
+      if (!response.ok) {
+        throw new Error("Error al obtener los usuarios. Intenta nuevamente.");
+      }
+
       const users = await response.json();
 
       const user = users.find(
@@ -21,28 +58,31 @@ const Login = () => {
       );
 
       if (user) {
-        localStorage.setItem("loggedInUser", JSON.stringify(user)); // Guarda el usuario en localStorage
+        localStorage.setItem("loggedInUser", JSON.stringify(user));
         if (user.role === "admin") {
-          navigate("/admin"); // Redirige al panel de administración
+          navigate("/admin");
         } else {
-          navigate("/products"); // Redirige a la página de productos
+          navigate("/products");
         }
       } else {
-        alert("Usuario o contraseña incorrectos");
+        alert("Usuario o contraseña incorrectos.");
       }
     } catch (error) {
       console.error("Error al iniciar sesión:", error);
+      alert("Hubo un problema al iniciar sesión. Intenta nuevamente.");
     }
   };
 
-  // Función para manejar el registro
+  // Manejar el registro
   const handleRegister = async (e) => {
     e.preventDefault();
+    if (!validateRegisterForm()) return;
+
     try {
       const newUser = {
         username: email,
         password,
-        role: "user", // Por defecto, los nuevos usuarios serán "user"
+        role: "user",
       };
 
       const response = await fetch("http://localhost:5000/users", {
@@ -53,14 +93,15 @@ const Login = () => {
         body: JSON.stringify(newUser),
       });
 
-      if (response.ok) {
-        alert("Usuario registrado con éxito");
-        setActiveTab("login"); // Cambia a la pestaña de inicio de sesión
-      } else {
-        alert("Error al registrar usuario");
+      if (!response.ok) {
+        throw new Error("Error al registrar el usuario. Intenta nuevamente.");
       }
+
+      alert("Usuario registrado con éxito.");
+      setActiveTab("login");
     } catch (error) {
       console.error("Error al registrar usuario:", error);
+      alert("Hubo un problema al registrar el usuario. Intenta nuevamente.");
     }
   };
 
@@ -99,6 +140,7 @@ const Login = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   required
                 />
+                {errors.email && <p className="error">{errors.email}</p>}
               </div>
               <div className="form__container--input">
                 <label htmlFor="password">🔒 Contraseña</label>
@@ -109,6 +151,7 @@ const Login = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   required
                 />
+                {errors.password && <p className="error">{errors.password}</p>}
               </div>
               <button type="submit">¡Entrar!</button>
             </form>
@@ -125,6 +168,7 @@ const Login = () => {
                   onChange={(e) => setName(e.target.value)}
                   required
                 />
+                {errors.name && <p className="error">{errors.name}</p>}
               </div>
               <div className="form__container--input">
                 <label htmlFor="email">📧 Correo electrónico</label>
@@ -135,6 +179,7 @@ const Login = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   required
                 />
+                {errors.email && <p className="error">{errors.email}</p>}
               </div>
               <div className="form__container--input">
                 <label htmlFor="password">🔒 Contraseña</label>
@@ -145,6 +190,7 @@ const Login = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   required
                 />
+                {errors.password && <p className="error">{errors.password}</p>}
               </div>
               <button type="submit">¡Crear mi cuenta!</button>
             </form>

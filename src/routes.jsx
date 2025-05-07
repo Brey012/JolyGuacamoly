@@ -5,6 +5,7 @@ import OrderSuccess from "./pages/OrderSuccess";
 import AdminPanel from "./pages/AdminPanel";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const AppRoutes = () => {
   return (
@@ -13,8 +14,16 @@ const AppRoutes = () => {
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
         <Route path="/order-success" element={<OrderSuccess />} />
-        <Route path="/admin" element={<AdminPanel />} />
         <Route path="/login" element={<Login />} />
+        {/* Ruta protegida para el panel de administración */}
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute requiredRole="admin">
+              <AdminPanel />
+            </ProtectedRoute>
+          }
+        />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
