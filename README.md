@@ -65,3 +65,46 @@ src/
 ├── utils/                 # Funciones utilitarias
 │   ├── calculateTotal.js  # Calcular totales
 │   └── formatDate.js      # Formatear fechas
+
+⚙️ Instalación
+Clona el repositorio:
+
+Instala las dependencias:
+
+Inicia el servidor simulado (json-server):
+
+Inicia la aplicación:
+
+🧑‍💻 Uso
+Clientes
+Accede a la página de productos (/products).
+Agrega productos al carrito.
+Confirma tu pedido ingresando los datos de envío.
+Visualiza la página de éxito del pedido.
+Administradores
+Inicia sesión como administrador.
+Accede al panel de administración (/admin).
+Gestiona productos:
+Cambia precios.
+Marca productos como agotados o disponibles.
+Visualiza pedidos recientes en el panel.
+📋 Scripts disponibles
+npm run dev: Inicia la aplicación en modo desarrollo.
+npm run build: Genera una versión optimizada para producción.
+npm run lint: Ejecuta ESLint para verificar errores de estilo.
+npm run server: Inicia el servidor simulado con json-server.
+🔒 Protección de rutas
+El acceso al panel de administración está protegido mediante el componente ProtectedRoute. Solo los usuarios con el rol de "admin" pueden acceder a /admin.
+🛠️ Mejoras futuras
+Implementar autenticación real con un backend.
+Agregar pruebas unitarias y de integración.
+Mejorar la experiencia de usuario con animaciones y transiciones.
+Implementar un sistema de roles más robusto.
+📄 Licencia
+Este proyecto está bajo la licencia MIT. Consulta el archivo LICENSE para más detalles.
+
+📞 Contacto
+Si tienes preguntas o sugerencias, no dudes en contactarme:
+
+Email: tu-email@example.com
+GitHub: tu-usuario
